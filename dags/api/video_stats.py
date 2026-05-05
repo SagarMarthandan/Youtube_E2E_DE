@@ -1,27 +1,24 @@
 import requests
 import json
 from datetime import date
+from airflow.decorators import task
+from airflow.models import Variable
+
+"""
 import os
 from dotenv import load_dotenv
-
 load_dotenv(dotenv_path="./.env")
-
-'''
-# from airflow.decorators import task
-# from airflow.models import Variable
-'''
-
 API_KEY = os.getenv("API_KEY")
 CHANNEL_HANDLE = os.getenv("CHANNEL_HANDLE")
+"""
 
-'''
-# API_KEY = Variable.get("API_KEY")
-# CHANNEL_HANDLE = Variable.get("CHANNEL_HANDLE")
-'''
+API_KEY = Variable.get("API_KEY")
+CHANNEL_HANDLE = Variable.get("CHANNEL_HANDLE")
+
 
 maxResults = 50
 
-#@task
+@task
 def get_playlist_id():
     """
     Fetches the 'uploads' playlist ID for the YouTube channel specified by CHANNEL_HANDLE.
@@ -41,7 +38,7 @@ def get_playlist_id():
     except requests.exceptions.RequestException as e:
         raise e
 
-#@task
+@task
 def get_video_ids(playlistId):
     """
     Retrieves all video IDs from the specified YouTube playlist.
@@ -73,7 +70,7 @@ def get_video_ids(playlistId):
     except requests.exceptions.RequestException as e:
         raise e
 
-#@task
+@task
 def extract_video_data(video_ids):
     """
     Extracts detailed statistics and information for a list of YouTube video IDs.
@@ -116,7 +113,7 @@ def extract_video_data(video_ids):
     except requests.exceptions.RequestException as e:
         raise e
 
-#@task
+@task
 def save_to_json(extracted_data):
     """
     Saves the extracted YouTube video data into a JSON file with the current date.
