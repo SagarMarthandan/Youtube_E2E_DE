@@ -121,7 +121,7 @@ def save_to_json(extracted_data):
     Args:
         extracted_data (list): The list of dictionaries containing video data to be saved.
     """
-    file_path = f"./data/YT_data_{date.today()}.json"
+    file_path = f"/opt/airflow/data/YT_data_{date.today()}.json"
     with open(file_path, "w", encoding="utf-8") as json_outfile:
         json.dump(extracted_data, json_outfile, indent=4, ensure_ascii=False)
 

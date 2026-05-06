@@ -9,7 +9,7 @@ def load_data():
     """Loads YouTube video data from a JSON file named with the current date."""
 
     # Construct the file path using today's date to match the extraction output
-    file_path = f"./data/YT_data_{date.today()}.json"
+    file_path = f"/opt/airflow/data/YT_data_{date.today()}.json"
 
     try:
         logger.info(f"Processing file: YT_data_{date.today()}")
