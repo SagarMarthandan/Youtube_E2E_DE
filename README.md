@@ -69,3 +69,4 @@ You can use DBeaver to connect to the PostgreSQL instance running in Docker and 
 - **Data Warehouse Operations**: Added `staging_table` and `core_table` processing to move raw JSON data into structured Postgres tables.
 - **Script Formatting and Documentation**: Added comprehensive docstrings to all functions in `video_stats.py`, `data_utils.py`, and `data_modification.py`. Cleaned up code formatting.
 - **Initial Development**: Built the YouTube Data API extraction logic, handling pagination and saving detailed metadata to JSON files.
+  sddsd
